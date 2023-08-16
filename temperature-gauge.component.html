@@ -1,0 +1,13 @@
+<main>
+  <div class="temperature-gauge">
+    <div class="temperature">{{ convertToFahrenheit(temperature) }}°F</div>
+    <ngx-gauge [type]="'semi'" [value]="temperature" [label]="'Temperature'" [append]="'°C'"></ngx-gauge>
+    <div class="color-indicator"
+         [ngClass]="{
+           'blue': temperature < 0,
+           'yellow': (temperature >= 0 && temperature < 10),
+           'orange': (temperature >= 10 && temperature < 30),
+           'red': temperature >= 30
+         }"></div>
+  </div>
+</main>

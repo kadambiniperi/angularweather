@@ -1,0 +1,18 @@
+<div class="weather-container">
+  <h1>Weather Application</h1>
+  <form>
+    <input type="text" name="cityName" placeholder="Enter City" [(ngModel)]="city">
+    <button type="button" (click)="getWeather()">Get Weather</button>
+  </form>
+
+<!-- ... other HTML content ... -->
+<div class="weather-info" *ngIf="weatherData">
+  <h2>{{ weatherData.name }}</h2>
+  <p>Temperature: {{ currentTemperature }}°C</p>
+  <p>Humidity: {{ weatherData.main.humidity }}%</p>
+  <p>Weather: {{ weatherData.weather[0].description }}</p>
+</div>
+<!-- ... other HTML content ... -->
+  
+  <app-temperature-gauge [temperature]="currentTemperature"></app-temperature-gauge>
+</div>
